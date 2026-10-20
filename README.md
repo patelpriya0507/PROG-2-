@@ -31,6 +31,7 @@ the model's answer, and OpenRouter's full JSON reply (tokens and cost included).
 | `examples/05-topic.*` | The model reads Prop 4 and explains what it means for one topic, "My Taxes": what the text says, then a labelled AI opinion. |
 | `examples/06-image.*` | Generate an image from a text prompt (`POST /api/v1/images`). About $0.04 per image. |
 | `data/datapack.json` | The ballot measures. Each has `label` (e.g. `"Prop 4"`) and `fullText`, the legal text; words in `[DELETED: ...]` are being removed from the law. `official` holds the state's own summary: show it to people, but don't send it to the model. |
-| `pack.offices` (in `datapack.json`) | The five offices on the ballot, from the PROG 02 handout. Not used by these examples yet. |
+| `pack.offices` (in `datapack.json`) | The five offices on the ballot, from the PROG 02 handout. `offices.html` explains one office from this text and can draw an illustration. |
+| `guide.html` | The voter guide: reading level, a topic, and a side-by-side comparison of the arguments. |
 
 

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ballot desk</title>
+  <link rel="stylesheet" href="css/examples.css?v=7">
+  <link rel="stylesheet" href="css/guide.css?v=10">
+  <script>
+    document.documentElement.setAttribute("data-tab", location.hash === "#sides" ? "sides" : "read");
+  </script>
+  <style>
+    html[data-tab="read"] #panel-sides { display: none !important; }
+    html[data-tab="sides"] #panel-read { display: none !important; }
+  </style>
+</head>
+<body class="app">
+<header class="mast">
+  <div class="mast-row">
+    <div>
+      <a class="mark" href="index.html?v=4">Ballot desk</a>
+      <p class="tagline">Class project. Not official voter information, and not a recommendation on how to vote.</p>
+    </div>
+    <div id="sessionBar">This session
+      <strong id="sessionCost">$0.000000</strong>
+    </div>
+  </div>
+  <nav class="nav">
+    <a href="index.html?v=4">Start</a>
+    <a href="#read" data-tab="read">Read it</a>
+    <a href="#sides" data-tab="sides">The two sides</a>
+    <a href="offices.html?v=4">Local offices</a>
+  </nav>
+</header>
+
+<main class="wrap">
+  <div class="context">
+    <label>Measure you are reading
+      <select id="measure"></select>
+    </label>
+    <div class="links">
+      <a id="legalPdf" target="_blank" rel="noopener">Certified legal text</a>
+      <a id="argumentsPage" target="_blank" rel="noopener">Full arguments and rebuttals</a>
+    </div>
+  </div>
+
+  <section id="panel-read" class="panel">
+    <p class="lede">Start with the law itself. The bars below only count words. They are a hint about what the text mentions, not proof the measure will change your life.</p>
+    <div class="controls">
+      <label>How plain
+        <select id="level">
+          <option value="as-written">As written, the real legal text</option>
+          <option value="plain">Plain English, grade 11–13</option>
+          <option value="everyday" selected>Everyday, grade 7–9</option>
+          <option value="simplest">Simplest, grade 3–4</option>
+        </select>
+      </label>
+      <label>How long
+        <select id="length">
+          <option value="headline">Headline, 25 words or fewer</option>
+          <option value="short">Short, 75–100 words</option>
+          <option value="standard" selected>Standard, 250–300 words</option>
+          <option value="complete">Complete, no word limit</option>
+          <option value="none">No length cap, for debugging</option>
+        </select>
+      </label>
+      <button id="show" type="button">Show this version</button>
+    </div>
+    <p id="warning"></p>
+    <p id="longNote"></p>
+
+    <h2>What the legal text mentions</h2>
+    <div id="topics" class="topics"></div>
+
+    <div class="read-grid">
+      <section class="sheet">
+        <h2>For this reader</h2>
+        <p id="outputLabel"></p>
+        <div id="output">Press Show this version.</div>
+        <p id="check"></p>
+        <p id="cost"></p>
+        <details id="fullTextDetails">
+          <summary>Show the full legal text</summary>
+          <pre id="fullText"></pre>
+        </details>
+      </section>
+      <section class="sheet">
+        <h2>One topic, closer</h2>
+        <p class="muted">The model splits its answer. The second part is an AI opinion, not a fact, and not advice on how to vote.</p>
+        <p>
+          <label>Topic
+            <select id="topic"></select>
+          </label>
+          <button id="explain" type="button">Explain this topic</button>
+        </p>
+        <p id="topicLabel"></p>
+        <p><a id="topicSource" target="_blank" rel="noopener">Full unaltered legal text (PDF)</a></p>
+        <div id="topicOutput">Press Explain this topic.</div>
+        <p id="topicCost"></p>
+      </section>
+    </div>
+  </section>
+
+  <section id="panel-sides" class="panel" hidden>
+    <span id="sides"></span>
+    <p class="lede">Yes is on the left. No is on the right. This page does not say which side is right, and it does not mark any claim true or false.</p>
+    <p id="argumentDisclaimer" class="disclaimer"></p>
+
+    <div class="sides-layout">
+      <section>
+        <h2>Who signed</h2>
+        <p class="muted">Each side wrote one argument and one reply. The names are from the printed pages. A name on both sides is called out below.</p>
+        <div id="signers"></div>
+      </section>
+      <section>
+        <h2>What each side claims</h2>
+        <p class="muted">Yes stays on the left and No on the right. Never raised is not a disagreement. A point that first appears in a reply is never answered.</p>
+        <p><button id="compare" type="button">Compare the two sides</button></p>
+        <p id="compareCost"></p>
+        <div id="compareOutput">Press Compare the two sides.</div>
+      </section>
+    </div>
+
+    <details>
+      <summary>The exact words sent to the model</summary>
+      <pre id="prompt">Nothing sent yet.</pre>
+    </details>
+  </section>
+</main>
+
+<script src="js/config.local.js?v=6"></script>
+<script src="js/openrouter.js?v=6"></script>
+<script src="js/fk.js?v=6"></script>
+<script src="guide.js?v=10"></script>
+</body>
+</html>

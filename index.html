@@ -3,29 +3,55 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PROG 02 Examples</title>
-  <link rel="stylesheet" href="css/examples.css">
+  <title>Ballot desk</title>
+  <link rel="stylesheet" href="css/examples.css?v=4">
+  <link rel="stylesheet" href="css/guide.css?v=4">
 </head>
-<body>
-<main>
-  <h1>PROG 02 API examples</h1>
-  <p>Small, runnable examples of calling a language model on the ballot measure data pack.
-    Each page shows the exact prompt it sends and the full reply it gets back. Class examples, not official voter information.</p>
-
-  <ol>
-    <li><a href="examples/01-summarize.html">Summarize a ballot measure</a>
-      <br>Pick a measure and a length; the model summarizes the legal text.</li>
-    <li><a href="examples/02-reading-level.html">Reading level (Flesch–Kincaid)</a>
-      <br>Compute the grade level of a measure's legal text. No AI.</li>
-    <li><a href="examples/03-spending.html">How much have I spent?</a>
-      <br>Ask OpenRouter how much your API key has used and how much is left. Free.</li>
-    <li><a href="examples/04-reading-level-rewrite.html">Rewrite at a reading level</a>
-      <br>The model rewrites a measure for a chosen grade; Flesch–Kincaid checks the result.</li>
-    <li><a href="examples/05-topic.html">One topic of concern: Prop 4 and My Taxes</a>
-      <br>The model reads Prop 4 and explains what it means for your taxes: what the text says, then its own opinion.</li>
-    <li><a href="examples/06-image.html">Generate an image</a>
-      <br>Send a text prompt to an image model and show the picture. About $0.04 per image.</li>
-  </ol>
+<body class="app">
+<header class="mast">
+  <div class="mast-row">
+    <div>
+      <a class="mark" href="index.html?v=4">Ballot desk</a>
+      <p class="tagline">A class reading of the November 3, 2026 ballot. Not official voter information.</p>
+    </div>
+  </div>
+  <nav class="nav">
+    <a href="index.html?v=4" aria-current="page">Start</a>
+    <a href="guide.html?v=4#read">Read it</a>
+    <a href="guide.html?v=4#sides">The two sides</a>
+    <a href="offices.html?v=4">Local offices</a>
+  </nav>
+</header>
+<main class="wrap">
+  <p class="lede">Three ways into the same ballot. Read the law in plainer words, set the two arguments next to each other, or see what a down-ballot office actually touches.</p>
+  <div class="doors">
+    <a class="door" href="guide.html?v=4#read">
+      <span class="kicker">The law</span>
+      <h2>Read a measure</h2>
+      <p>Pick a proposition, then how plain the words should be and how long the explanation should run.</p>
+    </a>
+    <a class="door door-sides" href="guide.html?v=4#sides">
+      <span class="kicker">The arguments</span>
+      <h2>The two sides</h2>
+      <p>Who signed, and what each side claims. A silence is not the same thing as a disagreement.</p>
+    </a>
+    <a class="door door-offices" href="offices.html?v=4">
+      <span class="kicker">The rest of the ballot</span>
+      <h2>Local offices</h2>
+      <p>What one office controls, the boundary it does not cross, and an illustration of that scope.</p>
+    </a>
+  </div>
+  <details class="examples">
+    <summary>Class examples, the small API pages</summary>
+    <ol>
+      <li><a href="examples/01-summarize.html">Summarize a ballot measure</a></li>
+      <li><a href="examples/02-reading-level.html">Reading level (Flesch–Kincaid)</a></li>
+      <li><a href="examples/03-spending.html">How much have I spent?</a></li>
+      <li><a href="examples/04-reading-level-rewrite.html">Rewrite at a reading level</a></li>
+      <li><a href="examples/05-topic.html">One topic of concern: Prop 4 and My Taxes</a></li>
+      <li><a href="examples/06-image.html">Generate an image</a></li>
+    </ol>
+  </details>
 </main>
 </body>
 </html>

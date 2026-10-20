@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Local offices — Ballot desk</title>
+  <link rel="stylesheet" href="css/examples.css?v=7">
+  <link rel="stylesheet" href="css/guide.css?v=8">
+</head>
+<body class="app">
+<header class="mast">
+  <div class="mast-row">
+    <div>
+      <a class="mark" href="index.html?v=4">Ballot desk</a>
+      <p class="tagline">Class project. Not official voter information, and not a recommendation on how to vote.</p>
+    </div>
+    <div id="sessionBar">This session
+      <strong id="sessionCost">$0.000000</strong>
+    </div>
+  </div>
+  <nav class="nav">
+    <a href="index.html?v=4">Start</a>
+    <a href="guide.html?v=4#read">Read it</a>
+    <a href="guide.html?v=4#sides">The two sides</a>
+    <a href="offices.html?v=4" aria-current="page">Local offices</a>
+  </nav>
+</header>
+
+<main class="wrap">
+  <p class="lede">These five offices are easy to skip. Pick one. The green text is the assignment pack, unaltered. A blue label means the model wrote it, and a point only counts as grounded when its quote is in that pack.</p>
+
+  <div id="officeCards" class="office-cards"></div>
+  <select id="office" class="visually-hidden" aria-hidden="true"></select>
+
+  <div class="office-layout">
+    <section class="sheet">
+      <h2>From the pack</h2>
+      <div id="pack" class="pack">Loading the pack…</div>
+      <p><button id="explain" type="button">Explain this office</button></p>
+      <p class="muted">A text call. The picture is separate, because each image costs about $0.04.</p>
+    </section>
+    <section class="sheet">
+      <h2>What the model wrote</h2>
+      <p id="explainLabel"></p>
+      <div id="explainOutput">Press Explain this office.</div>
+      <p id="explainCost"></p>
+      <details>
+        <summary>The exact words sent for the explanation</summary>
+        <pre id="explainPrompt">Nothing sent yet.</pre>
+      </details>
+    </section>
+  </div>
+
+  <section class="sheet stage">
+    <h2>A picture of the scope</h2>
+    <p class="muted">These scenes were written ahead of time, all inside what this office could affect, and set in Berkeley. Click a box to choose it, or let the model choose one of them. Generate illustration draws only that scene as a flat illustration, with no real people. The picture costs about $0.04. Why it matters is written for the scene, not drawn into the picture.</p>
+    <ul id="scenes"></ul>
+    <p>
+      <button id="pick" type="button">Let the AI choose</button>
+      <button id="draw" type="button">Generate illustration</button>
+    </p>
+    <div id="choice"></div>
+    <p id="pickCost"></p>
+    <h3>Image prompt</h3>
+    <pre id="imagePrompt">No scene chosen yet.</pre>
+    <h3>Picture</h3>
+    <p id="imageLabel"></p>
+    <div id="picture">No illustration yet.</div>
+    <p id="imageCost"></p>
+  </section>
+</main>
+
+<script src="js/config.local.js?v=6"></script>
+<script src="js/openrouter.js?v=6"></script>
+<script src="offices.js?v=11"></script>
+</body>
+</html>
